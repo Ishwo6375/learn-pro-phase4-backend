@@ -32,7 +32,7 @@ def index
  private
 
  def enrollment_params
- params.permit(:enrollment).permit(:enrollment_semester, enrollment_status)
+ params.require(:enrollment).permit(:enrollment_semester, :enrollment_status, :student_id, :course_id)
  end
 
  def find_enrollment
