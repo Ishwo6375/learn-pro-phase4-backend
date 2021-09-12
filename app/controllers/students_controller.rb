@@ -1,8 +1,7 @@
 class StudentsController < ApplicationController
-end
-class StudentsController < ApplicationController
  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+
 
  def index
   students = Student.all
@@ -15,13 +14,13 @@ class StudentsController < ApplicationController
  end
 
  def create
-  student = Student.create(student_params)
+  student = Student.create!(student_params)
   render json: student
  end
 
  def update
   student = find_student
-  student.update(student_params)
+  student.update!(student_params)
   render json: student
  end
 
@@ -34,7 +33,7 @@ class StudentsController < ApplicationController
  private
 
  def student_params
-  params.require(:student).permit(:name, :email, :gender, :contact, :image, :card_number)
+  params.require(:student).permit(:name, :email, :gender, :image, :Registration_num)
  end
 
  def find_student

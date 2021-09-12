@@ -19,7 +19,7 @@ def index
 
   def update
    course = find_course
-   course.update(course_params)
+   course.update!(course_params)
    render json: course
   end
 
@@ -33,7 +33,7 @@ def index
   private
 
   def course_params
-    params.require(:course).permit(:course_name, :description, :image, :duration, :course_type, :rate)
+    params.require(:course).permit(:course_name, :description, :image, :duration, :course_type, :rate, :price)
   end
 
   def find_course

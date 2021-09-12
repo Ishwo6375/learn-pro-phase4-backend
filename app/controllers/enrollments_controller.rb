@@ -13,13 +13,13 @@ def index
  end
 
  def create
- enrollment = Enrollment.create(enrollment_params)
+ enrollment = Enrollment.create!(enrollment_params)
  render json: enrollment
  end
 
  def update
   enrollment = find_enrollment
-  enrollment.update(enrollment_params)
+  enrollment.update!(enrollment_params)
   render json: enrollment
  end
 
@@ -32,7 +32,7 @@ def index
  private
 
  def enrollment_params
- params.permit(:enrollment).permit(:enrollment_session, enrollment_status)
+ params.permit(:enrollment).permit(:enrollment_semester, enrollment_status)
  end
 
  def find_enrollment
