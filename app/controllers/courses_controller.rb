@@ -33,7 +33,7 @@ def index
   private
 
   def course_params
-    params.require(:course).permit(:course_name, :description, :image, :duration, :course_type, :rate, :price)
+    params.require(:course).permit(:course_name, :description, :image, :duration, :course_type, :rate, :price, :instructor_id)
   end
 
   def find_course
