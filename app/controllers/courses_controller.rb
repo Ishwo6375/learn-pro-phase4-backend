@@ -9,11 +9,11 @@ def index
 
   def show
    course = find_course
-   render json: course
+   render json: course, include: :instructor
   end
 
   def create
-   course = Course.create(course_params)
+   course = Course.create!(course_params)
    render json: course
   end
 
@@ -33,7 +33,7 @@ def index
   private
 
   def course_params
-    params.require(:course).permit(:course_name, :description, :image, :duration, :course_type, :rate, :instructor_id)
+    params.require(:course).permit(:course_name, :description, :image, :duration, :course_type, :rate)
   end
 
   def find_course
