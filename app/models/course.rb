@@ -8,7 +8,6 @@ class Course < ApplicationRecord
   validates :image, presence: true, uniqueness: true
   validates :duration, presence:true
   validates :course_type, presence:true
-  validates :rate, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 11 }
   validates :price, presence: true, numericality: { only_integer: true, greater_than: 9, less_than: 50000 }
   
 end
